@@ -5,19 +5,33 @@
 <table class="table table-hover table-striped table-bordered mb-3">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Kategoria</th>
-        <th scope="col">termék</th>
-        <th scope="col">Vevő</th>
-        <th scope="col">Mennyiség</th>
-        <th scope="col">Nettó ár</th>
-        <th scope="col">Összesen</th>
-        <th scope="col">Kiadva</th>
+        <th>#</th>
+        <th>Kategoria</th>
+        <th>termék</th>
+        <th>Vevő</th>
+        <th>Egység</th>
+        <th>Nettó ár</th>
+        <th>Mennyiseg</th>
+        <th>Kiadva</th>
+        <th>Művelet</th>
       </tr>
     </thead>
 
     <tbody>
-
+      <tr *ngFor="let trafic of trafics;index as i">
+        <td class="text-end">{{i+1}}.</td>
+        <td class="text-end">{{trafic.kategoriaId}}</td>
+        <td>{{trafic.termek}}</td>
+        <td>{{trafic.vevo}}</td>
+        <td>{{trafic.egyseg}}</td>
+        <td class="text-end">{{trafic.nettoar}}</td>
+        <td class="text-end">{{trafic.mennyiseg}}</td>
+        <td class="text-end">{{trafic.kiadva}}</td>
+        <td>
+          <button class="btn btn-sm btn-warning me-2"><i class="bi bi-gear-wide"></i></button>
+          <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+        </td>
+      </tr>
     </tbody>
     <tfoot>
        <th colspan="8" class="text-center"> Összesen: <span>0</span> rekord</th>

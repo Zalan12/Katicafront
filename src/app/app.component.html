@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <app-header></app-header>
+  <app-header [title]="appTitle"></app-header>
   <app-navbar></app-navbar>
   
 
@@ -17,5 +17,5 @@
 <app-stat class="col-lg-4"></app-stat>
 
 </div>
-<app-footer></app-footer>
+<app-footer [company]="company" [author]="author"></app-footer>
 </div>

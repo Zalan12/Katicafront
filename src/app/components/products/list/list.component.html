@@ -5,12 +5,23 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Termék neve</th>
+        <th scope="col">Termék kategóriája</th>
+        <th scope="col">Egység</th>
+        <th scope="col">Nettó ár</th>
+        
         
       </tr>
     </thead>
 
     <tbody>
-
+      <tr *ngFor="let product of products">
+        <td>{{product.termekID}}</td>
+        <td>{{product.termek}}</td>
+        <td>{{product.kategoriaNev}}</td>
+        <td>{{product.egyseg}}</td>
+        <td>{{product.nettoAr}}</td>
+      </tr>
     </tbody>
     <tfoot>
        <th colspan="8" class="text-center"> Összesen: <span>0</span> rekord</th>

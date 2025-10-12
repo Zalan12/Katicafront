@@ -6,11 +6,16 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Vásárló neve</th>
         
       </tr>
     </thead>
-
-    <tbody>
+    
+    <tbody >
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.vevoID}}</td>
+        <td>{{customer.vevoNev}}</td>
+      </tr>
 
     </tbody>
     <tfoot>

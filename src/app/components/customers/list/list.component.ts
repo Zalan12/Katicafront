@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import axios from 'axios';
 import { Customer } from '../../../interfaces/customer';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-list',
@@ -12,17 +12,11 @@ import { Customer } from '../../../interfaces/customer';
   styleUrl: './list.component.scss'
 })
 export class CustListComponent {
+  constructor(private api:ApiService){}
   customers:Customer[] = [];
     async ngOnInit() {
-      try{
-     const response= await axios.get('http://localhost:3000/customers');
-     this.customers=response.data;
-     console.log(this.customers)
-    }
-    catch(err:any)
-    {
-      console.log(err.message)
-      alert('Hiba az adatok lekérése során')
-    }
+      this.api.selectAll('customers ').then(res=>{
+       
+      });
     }
 }

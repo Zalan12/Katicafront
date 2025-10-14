@@ -7,6 +7,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Vásárló neve</th>
+        <th scope="col">Műveletek</th>
         
       </tr>
     </thead>
@@ -15,6 +16,10 @@
       <tr *ngFor="let customer of customers">
         <td>{{customer.vevoID}}</td>
         <td>{{customer.vevoNev}}</td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-warning me-2"><i class="bi bi-gear-wide"></i></button>
+          <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+        </td>
       </tr>
 
     </tbody>

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import axios from 'axios';
 import { Product } from '../../../interfaces/product';
+import { ApiService } from '../../../services/api.service';
 
 
 @Component({
@@ -13,17 +13,13 @@ import { Product } from '../../../interfaces/product';
   styleUrl: './list.component.scss'
 })
 export class ProdListComponent {
+  constructor(private api:ApiService){}
     products:Product[] = [];
-    async ngOnInit() {
-      try{
-     const response= await axios.get('http://localhost:3000/products');
-     this.products=response.data;
-     console.log(this.products)
+    ngOnInit() {
+      this.api.selectAll('products').then(res=>{
+        
+      });
     }
-    catch(err:any)
-    {
-      console.log(err.message)
-      alert('Hiba az adatok lekérése során')
-    }
-    }
+
+   
 }

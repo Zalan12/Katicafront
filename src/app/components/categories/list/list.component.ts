@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import axios from 'axios';
 import { Category } from '../../../interfaces/category';
-
+import { ApiService } from '../../../services/api.service';
 
 
 @Component({
@@ -15,19 +14,12 @@ import { Category } from '../../../interfaces/category';
 })
 
 export class CListComponent implements OnInit {
-
+  constructor (private api:ApiService){}
   categories:Category[] = [];
     async ngOnInit() {
-      try{
-     const response= await axios.get('http://localhost:3000/categories');
-     this.categories=response.data;
-     console.log(this.categories)
-    }
-    catch(err:any)
-    {
-      console.log(err.message)
-      alert('Hiba az adatok lekérése során')
-    }
+      this.api.selectAll('categoires').then(res=>{
+      
+      });
     }
 }
 

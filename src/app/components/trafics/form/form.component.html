@@ -1,4 +1,5 @@
-<form>
+<h5 *ngIf="!this.id">Új adat felvétele</h5>
+<h5 *ngIf="this.id">Módosítás</h5>
     <div class="form-floating mb-3 mt-3">
         <input type="text" class="form-control" id="kategNevField" placeholder="">
         <label for="floatingInput">Termék</label>
@@ -20,6 +21,5 @@
         <label for="floatingInput">Mennyiség</label>
       </div>
 
-      <button type="button" class="btn btn-primary m-3" id="saveCateg">Mentés <i class="bi bi-floppy"></i></button>
+      <button type="button" class="btn btn-primary m-3" id="saveCateg" (click)="save()">Mentés <i class="bi bi-floppy"></i></button>
       <button type="button" class="btn btn-secondary" routerLink="/trafics">Vissza</button>
-</form>

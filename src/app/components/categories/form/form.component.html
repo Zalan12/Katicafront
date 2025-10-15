@@ -1,8 +1,11 @@
-<form>
+<h3>Adatkezelés</h3>
+<hr>
+
+<h5 *ngIf="!this.id">Új adat felvétele</h5>
+<h5 *ngIf="this.id">Módosítás</h5>
     <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="kategNevField" placeholder="">
+        <input type="text" class="form-control" id="kategNevField" placeholder="" [(ngModel)]="newCategory.kategoriaNev">
         <label for="floatingInput">Kategória neve</label>
       </div>
-      <button type="button" class="btn btn-primary m-3" id="saveCateg">Mentés <i class="bi bi-floppy"></i></button>
+      <button type="button" class="btn btn-primary m-3" id="saveCateg" (click)="save()">Mentés <i class="bi bi-floppy"></i></button>
       <button type="button" class="btn btn-secondary" routerLink="/categories">Vissza</button>
-</form>

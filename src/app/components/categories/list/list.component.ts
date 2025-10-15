@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Category } from '../../../interfaces/category';
 import { ApiService } from '../../../services/api.service';
+import { ApiResponse } from '../../../interfaces/apiresponse';
 
 
 @Component({
@@ -17,9 +18,33 @@ export class CListComponent implements OnInit {
   constructor (private api:ApiService){}
   categories:Category[] = [];
     async ngOnInit() {
-      this.api.selectAll('categoires').then(res=>{
       
-      });
+      this.getAllCategories();
+
+    }
+    getAllCategories(){
+      this.api.selectAll('categories').then((res:ApiResponse)=>{
+        if(res.status==200)
+          {
+            this.categories=res.data;
+          }
+        
+      })
+    }
+    delete(id:number){
+      if(window.confirm('biztos törlöd'))
+      {
+        this.api.delete('categories',id).then((res:ApiResponse)=>{
+          if(res.status==200){
+            alert(res.message)
+            this.getAllCategories();
+
+          }
+          else{
+            alert(res.message)
+          }
+        })
+      }
     }
 }
 

@@ -4,15 +4,18 @@ import { Trafic } from '../../../interfaces/trafic';
 import { ApiResponse } from '../../../interfaces/apiresponse';
 import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
+import { Customer } from '../../../interfaces/customer';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,CommonModule,FormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
 })
 export class TraficFormComponent {
+  customers:Customer[] = [];
 id:number | undefined=undefined; //Údiós pályázat típus
   newTrafic: Trafic = {
     id:0,
@@ -27,6 +30,7 @@ id:number | undefined=undefined; //Údiós pályázat típus
     
   }
   allTrafics: Trafic[] = []
+  
   ngOnInit(): void {
     this.id=this.activatedRoute.snapshot.params['id'];
     if(this.id){
@@ -35,6 +39,17 @@ id:number | undefined=undefined; //Údiós pályázat típus
       })
     }
     this.getAllTrafics();
+    this.getAllCustomers();
+  }
+
+  getAllCustomers(){
+    this.api.selectAll('customers').then((res:ApiResponse)=>{
+      if(res.status==200)
+        {
+          this.customers=res.data;
+        }
+      
+    })
   }
 
   constructor(private api: ApiService, private activatedRoute:ActivatedRoute, private router:Router) { }
@@ -49,11 +64,13 @@ id:number | undefined=undefined; //Údiós pályázat típus
       alert('Add meg a termék nevét!!!');
       return;
     }
+
     let idx = this.allTrafics.findIndex(item => item.termek.toLocaleLowerCase() == this.newTrafic.termek.toLocaleLowerCase());
     if (idx > -1) {
       alert('Van már ilyen termek');
       return;
     }
+    console.log(this.newTrafic.termek)
     if(!this.id){
       this.api.insert('traffics', this.newTrafic).then((res: ApiResponse) => {
         if (res.status == 200) {

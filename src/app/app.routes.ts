@@ -52,6 +52,15 @@ export const routes: Routes = [
         component:ProdFormComponent
 
     },
+    
+    {
+        path:'productsForm/:id',
+        component:ProdFormComponent
+    },
+    {
+        path:'customersForm/:id',
+        component:CustFormComponent
+    },
     {
         path:'customersForm',
         component:CustFormComponent

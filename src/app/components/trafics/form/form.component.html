@@ -1,23 +1,22 @@
 <h5 *ngIf="!this.id">Új adat felvétele</h5>
 <h5 *ngIf="this.id">Módosítás</h5>
     <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="kategNevField" placeholder="">
+        <input type="text" class="form-control" id="kategNevField" placeholder="" [(ngModel)]="newTrafic.termek">
         <label for="floatingInput">Termék</label>
       </div>
+      <select class="form-select" aria-label="Default select example" id="selectes" [(ngModel)]="newTrafic.vevo">
+        <option *ngFor="let customer of customers">{{customer.vevoNev}}</option>
+      </select>
       <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="kategNevField" placeholder="">
-        <label for="floatingInput">Vevő</label>
-      </div>
-      <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="kategNevField" placeholder="">
+        <input type="text" class="form-control" id="kategNevField" placeholder="" [(ngModel)]="newTrafic.egyseg">
         <label for="floatingInput">Egység</label>
       </div>
       <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="kategNevField" placeholder="">
+        <input type="text" class="form-control" id="kategNevField" placeholder="" [(ngModel)]="newTrafic.nettoar">
         <label for="floatingInput">Nettó ár</label>
       </div>
       <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="kategNevField" placeholder="">
+        <input type="text" class="form-control" id="kategNevField" placeholder="" [(ngModel)]="newTrafic.mennyiseg">
         <label for="floatingInput">Mennyiség</label>
       </div>
 

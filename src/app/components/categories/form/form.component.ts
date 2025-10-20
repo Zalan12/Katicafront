@@ -3,7 +3,6 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ApiResponse } from '../../../interfaces/apiresponse';
 import { ApiService } from '../../../services/api.service';
 import { Category } from '../../../interfaces/category';
-
 import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common';
 
@@ -52,7 +51,7 @@ export class CategFormComponent implements OnInit {
     if(!this.id){
       this.api.insert('categories', this.newCategory).then((res: ApiResponse) => {
         if (res.status == 200) {
-          alert(res.message);
+          alert("Sikeres adatfelvétel");
           this.newCategory = {
             id: 0,
             kategoriaNev: ''
@@ -68,7 +67,7 @@ export class CategFormComponent implements OnInit {
       console.log(this.newCategory)
       this.api.update('categories',this.id,this.newCategory).then((res:ApiResponse)=>{
         if(res.status==200){
-          alert(res.message);
+          alert("Sikeres módosítás");
           this.router.navigate(['/categories']);
         }
         else{alert(res.message)}

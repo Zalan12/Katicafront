@@ -1,8 +1,22 @@
-<form>
+<h3>Termék felvétele</h3>
+<hr>
+<h5 *ngIf="!this.id">Új adat felvétele</h5>
+<h5 *ngIf="this.id">Módosítás</h5>
     <div class="form-floating mb-3 mt-3">
-        <input type="text" class="form-control" id="termekNevField" placeholder="">
+        <input type="text" class="form-control" id="termekNevField" placeholder="" [(ngModel)]="newProduct.termek">
         <label for="termekNevField">Termék neve</label>
       </div>
-      <button type="button" class="btn btn-primary m-3" id="saveTermek">Mentés <i class="bi bi-floppy"></i></button>
+      <select class="form-select" aria-label="Default select example" id="selectes" [(ngModel)]="newProduct.kategoriaNev">
+        <option *ngFor="let category of categories">{{category.kategoriaNev}}</option>
+      </select>
+
+      <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="termekNevField"  [(ngModel)]="newProduct.egyseg">
+        <label for="termekNevField">Egység</label>
+      </div>
+      <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="termekNevField" placeholder="" [(ngModel)]="newProduct.nettoAr">
+        <label for="termekNevField">Ár</label>
+      </div>
+      <button type="button" class="btn btn-primary m-3" id="saveTermek" (click)="save()">Mentés <i class="bi bi-floppy"></i></button>
       <button type="button" class="btn btn-secondary" routerLink="/products">Vissza</button>
-</form>

@@ -19,7 +19,7 @@ import { CustListComponent } from './components/customers/list/list.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  appTitle = 'Szarvasbogár Büfé';
+  appTitle = 'Katica Büfé';
   company='Bajai SZC Türr István technikum'
   author='13. szoftverfejlesztő'
 }

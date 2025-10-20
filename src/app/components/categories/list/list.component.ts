@@ -36,7 +36,7 @@ export class CListComponent implements OnInit {
       {
         this.api.delete('categories',id).then((res:ApiResponse)=>{
           if(res.status==200){
-            alert(res.message)
+            alert('Sikeres törlés')
             this.getAllCategories();
 
           }

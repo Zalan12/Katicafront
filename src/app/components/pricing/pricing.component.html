@@ -1,15 +1,23 @@
 <h3>Árlista</h3>
 <hr>
-<table class="table table-hover table-striped table-bordered mb-3">
+<table class="table table-hover table-bordered mb-3">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col" colspan="2" class="text-center"><h3>Étlap</h3></th>
         
       </tr>
     </thead>
 
-    <tbody>
+    <tbody  *ngFor="let category of categories">
       
+      <tr>
+        <td colspan="2"><h5>{{category.kategoriaNev}}</h5></td>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td *ngIf="product.kategoriaNev==category.kategoriaNev">{{product.termek}}</td>
+        <td *ngIf="product.kategoriaNev==category.kategoriaNev">{{product.nettoAr}}Ft</td>
+      </tr>
+
     </tbody>
     <tfoot>
        <th colspan="8" class="text-center"> Összesen: <span>0</span> rekord</th>

@@ -26,7 +26,8 @@
         <td>{{trafic.egyseg}}</td>
         <td class="text-end">{{trafic.nettoar}}</td>
         <td class="text-end">{{trafic.mennyiseg}}</td>
-        <td class="text-end">{{trafic.kiadva}}</td>
+        <td class="text-end " *ngIf="trafic.kiadva==1">Kiadva</td>
+        <td class="text-end" *ngIf="trafic.kiadva==0">Folyamatban</td>
         <td>
           <button class="btn btn-sm btn-warning me-2" routerLink="/traficForm/{{trafic.id}}"><i class="bi bi-gear-wide"></i></button>
           <button class="btn btn-sm btn-danger" (click)="delete(trafic.id)"><i class="bi bi-trash-fill"></i></button>

@@ -8,5 +8,5 @@ export interface Trafic
   egyseg:string,
   nettoar:number,
   mennyiseg:number,
-  kiadva:boolean
+  kiadva:boolean|number
 }
